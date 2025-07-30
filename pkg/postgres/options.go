@@ -25,3 +25,4 @@ func ConnTimeout(timeout time.Duration) Option {
 		c.connTimeout = timeout
 	}
 }
+

@@ -75,3 +75,4 @@ func (p *Postgres) Close() {
 		p.Pool.Close()
 	}
 }
+

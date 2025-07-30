@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	translator "github.com/Conight/go-googletrans"
-	"github.com/evrone/go-clean-template/internal/entity"
+	"github.com/hoan02/puchi-user-service/internal/entity"
 )
 
 // TranslationWebAPI -.
@@ -37,3 +37,4 @@ func (t *TranslationWebAPI) Translate(translation entity.Translation) (entity.Tr
 
 	return translation, nil
 }
+

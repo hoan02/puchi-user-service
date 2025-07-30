@@ -1,9 +1,9 @@
 package v1
 
 import (
-	"github.com/evrone/go-clean-template/internal/usecase"
-	"github.com/evrone/go-clean-template/pkg/logger"
-	"github.com/evrone/go-clean-template/pkg/rabbitmq/rmq_rpc/server"
+	"github.com/hoan02/puchi-user-service/internal/usecase"
+	"github.com/hoan02/puchi-user-service/pkg/logger"
+	"github.com/hoan02/puchi-user-service/pkg/rabbitmq/rmq_rpc/server"
 	"github.com/go-playground/validator/v10"
 )
 
@@ -15,3 +15,4 @@ func NewTranslationRoutes(routes map[string]server.CallHandler, t usecase.Transl
 		routes["v1.getHistory"] = r.getHistory()
 	}
 }
+

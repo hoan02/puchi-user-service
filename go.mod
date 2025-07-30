@@ -1,4 +1,4 @@
-module github.com/evrone/go-clean-template
+module github.com/hoan02/puchi-user-service
 
 go 1.24
 

@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	v1 "github.com/evrone/go-clean-template/docs/proto/v1"
-	"github.com/evrone/go-clean-template/internal/controller/grpc/v1/response"
+	v1 "github.com/hoan02/puchi-user-service/docs/proto/v1"
+	"github.com/hoan02/puchi-user-service/internal/controller/grpc/v1/response"
 )
 
 func (r *V1) GetHistory(ctx context.Context, _ *v1.GetHistoryRequest) (*v1.GetHistoryResponse, error) {
@@ -18,3 +18,4 @@ func (r *V1) GetHistory(ctx context.Context, _ *v1.GetHistoryRequest) (*v1.GetHi
 
 	return response.NewTranslationHistory(translationHistory), nil
 }
+

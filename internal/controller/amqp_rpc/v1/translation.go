@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/evrone/go-clean-template/pkg/rabbitmq/rmq_rpc/server"
+	"github.com/hoan02/puchi-user-service/pkg/rabbitmq/rmq_rpc/server"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
 
@@ -20,3 +20,4 @@ func (r *V1) getHistory() server.CallHandler {
 		return translationHistory, nil
 	}
 }
+

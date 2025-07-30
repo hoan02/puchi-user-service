@@ -6,3 +6,4 @@ package entity
 type TranslationHistory struct {
 	History []Translation `json:"history"`
 }
+

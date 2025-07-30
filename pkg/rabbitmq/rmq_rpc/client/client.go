@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	rmqrpc "github.com/evrone/go-clean-template/pkg/rabbitmq/rmq_rpc"
+	rmqrpc "github.com/hoan02/puchi-user-service/pkg/rabbitmq/rmq_rpc"
 	"github.com/goccy/go-json"
 	"github.com/google/uuid"
 	amqp "github.com/rabbitmq/amqp091-go"
@@ -245,3 +245,4 @@ func (c *Client) Shutdown() error {
 
 	return nil
 }
+

@@ -7,18 +7,18 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/evrone/go-clean-template/config"
-	amqprpc "github.com/evrone/go-clean-template/internal/controller/amqp_rpc"
-	"github.com/evrone/go-clean-template/internal/controller/grpc"
-	"github.com/evrone/go-clean-template/internal/controller/http"
-	"github.com/evrone/go-clean-template/internal/repo/persistent"
-	"github.com/evrone/go-clean-template/internal/repo/webapi"
-	"github.com/evrone/go-clean-template/internal/usecase/translation"
-	"github.com/evrone/go-clean-template/pkg/grpcserver"
-	"github.com/evrone/go-clean-template/pkg/httpserver"
-	"github.com/evrone/go-clean-template/pkg/logger"
-	"github.com/evrone/go-clean-template/pkg/postgres"
-	"github.com/evrone/go-clean-template/pkg/rabbitmq/rmq_rpc/server"
+	"github.com/hoan02/puchi-user-service/config"
+	amqprpc "github.com/hoan02/puchi-user-service/internal/controller/amqp_rpc"
+	"github.com/hoan02/puchi-user-service/internal/controller/grpc"
+	"github.com/hoan02/puchi-user-service/internal/controller/http"
+	"github.com/hoan02/puchi-user-service/internal/repo/persistent"
+	"github.com/hoan02/puchi-user-service/internal/repo/webapi"
+	"github.com/hoan02/puchi-user-service/internal/usecase/translation"
+	"github.com/hoan02/puchi-user-service/pkg/grpcserver"
+	"github.com/hoan02/puchi-user-service/pkg/httpserver"
+	"github.com/hoan02/puchi-user-service/pkg/logger"
+	"github.com/hoan02/puchi-user-service/pkg/postgres"
+	"github.com/hoan02/puchi-user-service/pkg/rabbitmq/rmq_rpc/server"
 )
 
 // Run creates objects via constructors.
@@ -90,3 +90,4 @@ func Run(cfg *config.Config) {
 		l.Error(fmt.Errorf("app - Run - rmqServer.Shutdown: %w", err))
 	}
 }
+

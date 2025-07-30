@@ -62,3 +62,4 @@ func (s *Server) Shutdown() error {
 
 	return nil
 }
+

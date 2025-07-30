@@ -74,3 +74,4 @@ func NewConfig() (*Config, error) {
 
 	return cfg, nil
 }
+

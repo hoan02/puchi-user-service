@@ -7,9 +7,9 @@
 
 Clean Architecture template for Golang services
 
-[![Release](https://img.shields.io/github/v/release/evrone/go-clean-template.svg)](https://github.com/evrone/go-clean-template/releases/)
-[![License](https://img.shields.io/badge/License-MIT-success)](https://github.com/evrone/go-clean-template/blob/master/LICENSE)
-[![Go Report Card](https://goreportcard.com/badge/github.com/evrone/go-clean-template)](https://goreportcard.com/report/github.com/evrone/go-clean-template)
+[![Release](https://img.shields.io/github/v/release/evrone/go-clean-template.svg)](https://github.com/hoan02/puchi-user-service/releases/)
+[![License](https://img.shields.io/badge/License-MIT-success)](https://github.com/hoan02/puchi-user-service/blob/master/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hoan02/puchi-user-service)](https://goreportcard.com/report/github.com/hoan02/puchi-user-service)
 [![codecov](https://codecov.io/gh/evrone/go-clean-template/branch/master/graph/badge.svg?token=XE3E0X3EVQ)](https://codecov.io/gh/evrone/go-clean-template)
 
 [![Web Framework](https://img.shields.io/badge/Fiber-Web%20Framework-blue)](https://github.com/gofiber/fiber)
@@ -422,3 +422,11 @@ _Ports and adapters_ are very close to _Clean Architecture_, the differences are
 
 - [The Clean Architecture article](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [Twelve factors](https://12factor.net/ru/)
+
+
+
+go install github.com/swaggo/swag/cmd/swag@latest
+go install github.com/go-task/task/v3/cmd/task@latest
+go install github.com/securego/gosec/v2/cmd/gosec@latest
+go install github.com/vektra/mockery/v2@latest
+go install golang.org/x/vuln/cmd/govulncheck@latest
