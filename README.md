@@ -77,14 +77,14 @@ Check services:
 
 - AMQP RPC:
   - URL: `amqp://guest:guest@127.0.0.1:5672/`
-  - Client Exchange: `rpc_client`
-  - Server Exchange: `rpc_server`
+  - Client Exchange: `user_rpc_client`
+  - Server Exchange: `user_rpc_server`
 - REST API:
-  - http://app.lvh.me/healthz | http://127.0.0.1:8080/healthz
-  - http://app.lvh.me/metrics | http://127.0.0.1:8080/metrics
-  - http://app.lvh.me/swagger | http://127.0.0.1:8080/swagger
+  - http://app.lvh.me/healthz | http://127.0.0.1:8002/healthz
+  - http://app.lvh.me/metrics | http://127.0.0.1:8002/metrics
+  - http://app.lvh.me/swagger | http://127.0.0.1:8002/swagger
 - gRPC:
-  - URL: `tcp://grpc.lvh.me:8081` | `tcp://127.0.0.1:8081`
+  - URL: `tcp://grpc.lvh.me:9002` | `tcp://127.0.0.1:9002`
   - [v1/translation.history.proto](docs/proto/v1/translation.history.proto)
 - PostgreSQL:
   - `postgres://user:myAwEsOm3pa55@w0rd@127.0.0.1:5432/db`
