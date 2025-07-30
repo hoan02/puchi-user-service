@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/evrone/go-clean-template/internal/entity"
-	"github.com/evrone/go-clean-template/pkg/postgres"
+	"github.com/hoan02/puchi-user-service/internal/entity"
+	"github.com/hoan02/puchi-user-service/pkg/postgres"
 )
 
 const _defaultEntityCap = 64
@@ -70,3 +70,4 @@ func (r *TranslationRepo) Store(ctx context.Context, t entity.Translation) error
 
 	return nil
 }
+

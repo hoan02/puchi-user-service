@@ -5,7 +5,7 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/evrone/go-clean-template/pkg/logger"
+	"github.com/hoan02/puchi-user-service/pkg/logger"
 	"github.com/gofiber/fiber/v2"
 	fiberRecover "github.com/gofiber/fiber/v2/middleware/recover"
 )
@@ -36,3 +36,4 @@ func Recovery(l logger.Interface) func(c *fiber.Ctx) error {
 		StackTraceHandler: logPanic(l),
 	})
 }
+

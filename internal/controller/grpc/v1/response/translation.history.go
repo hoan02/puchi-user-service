@@ -1,8 +1,8 @@
 package response
 
 import (
-	v1 "github.com/evrone/go-clean-template/docs/proto/v1"
-	"github.com/evrone/go-clean-template/internal/entity"
+	v1 "github.com/hoan02/puchi-user-service/docs/proto/v1"
+	"github.com/hoan02/puchi-user-service/internal/entity"
 )
 
 // NewTranslationHistory -.
@@ -20,3 +20,4 @@ func NewTranslationHistory(translationHistory entity.TranslationHistory) *v1.Get
 
 	return &v1.GetHistoryResponse{History: history}
 }
+

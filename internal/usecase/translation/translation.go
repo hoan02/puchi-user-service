@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/evrone/go-clean-template/internal/entity"
-	"github.com/evrone/go-clean-template/internal/repo"
+	"github.com/hoan02/puchi-user-service/internal/entity"
+	"github.com/hoan02/puchi-user-service/internal/repo"
 )
 
 // UseCase -.
@@ -46,3 +46,4 @@ func (uc *UseCase) Translate(ctx context.Context, t entity.Translation) (entity.
 
 	return translation, nil
 }
+

@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/evrone/go-clean-template/pkg/logger"
+	"github.com/hoan02/puchi-user-service/pkg/logger"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -33,3 +33,4 @@ func Logger(l logger.Interface) func(c *fiber.Ctx) error {
 		return err
 	}
 }
+

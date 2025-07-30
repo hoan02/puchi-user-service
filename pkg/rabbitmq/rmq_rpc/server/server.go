@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/evrone/go-clean-template/pkg/logger"
-	rmqrpc "github.com/evrone/go-clean-template/pkg/rabbitmq/rmq_rpc"
+	"github.com/hoan02/puchi-user-service/pkg/logger"
+	rmqrpc "github.com/hoan02/puchi-user-service/pkg/rabbitmq/rmq_rpc"
 	"github.com/goccy/go-json"
 	amqp "github.com/rabbitmq/amqp091-go"
 )
@@ -162,3 +162,4 @@ func (s *Server) Shutdown() error {
 
 	return nil
 }
+

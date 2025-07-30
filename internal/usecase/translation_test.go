@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/evrone/go-clean-template/internal/entity"
-	"github.com/evrone/go-clean-template/internal/usecase/translation"
+	"github.com/hoan02/puchi-user-service/internal/entity"
+	"github.com/hoan02/puchi-user-service/internal/usecase/translation"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/mock/gomock"
 )
@@ -119,3 +119,4 @@ func TestTranslate(t *testing.T) { //nolint:tparallel // data races here
 		})
 	}
 }
+

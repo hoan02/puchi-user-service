@@ -13,7 +13,7 @@ import (
 	context "context"
 	reflect "reflect"
 
-	entity "github.com/evrone/go-clean-template/internal/entity"
+	entity "github.com/hoan02/puchi-user-service/internal/entity"
 	gomock "go.uber.org/mock/gomock"
 )
 
@@ -108,3 +108,4 @@ func (mr *MockTranslationWebAPIMockRecorder) Translate(arg0 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Translate", reflect.TypeOf((*MockTranslationWebAPI)(nil).Translate), arg0)
 }
+

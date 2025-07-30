@@ -4,7 +4,7 @@ package repo
 import (
 	"context"
 
-	"github.com/evrone/go-clean-template/internal/entity"
+	"github.com/hoan02/puchi-user-service/internal/entity"
 )
 
 //go:generate mockgen -source=contracts.go -destination=../usecase/mocks_repo_test.go -package=usecase_test
@@ -21,3 +21,4 @@ type (
 		Translate(entity.Translation) (entity.Translation, error)
 	}
 )
+

@@ -13,3 +13,4 @@ func Port(port string) Option {
 		s.address = net.JoinHostPort("", port)
 	}
 }
+

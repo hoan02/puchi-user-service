@@ -3,8 +3,8 @@ package v1
 import (
 	"net/http"
 
-	"github.com/evrone/go-clean-template/internal/controller/http/v1/request"
-	"github.com/evrone/go-clean-template/internal/entity"
+	"github.com/hoan02/puchi-user-service/internal/controller/http/v1/request"
+	"github.com/hoan02/puchi-user-service/internal/entity"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -70,3 +70,4 @@ func (r *V1) doTranslate(ctx *fiber.Ctx) error {
 
 	return ctx.Status(http.StatusOK).JSON(translation)
 }
+

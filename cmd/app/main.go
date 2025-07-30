@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/evrone/go-clean-template/config"
-	"github.com/evrone/go-clean-template/internal/app"
+	"github.com/hoan02/puchi-user-service/config"
+	"github.com/hoan02/puchi-user-service/internal/app"
 )
 
 func main() {
@@ -17,3 +17,4 @@ func main() {
 	// Run
 	app.Run(cfg)
 }
+

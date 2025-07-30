@@ -42,3 +42,4 @@ func ShutdownTimeout(timeout time.Duration) Option {
 		s.shutdownTimeout = timeout
 	}
 }
+

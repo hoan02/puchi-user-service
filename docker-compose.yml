@@ -110,3 +110,4 @@ networks:
 volumes:
   db_data:
   rabbitmq_data:
+
