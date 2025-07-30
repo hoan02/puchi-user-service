@@ -20,4 +20,3 @@ func (r *V1) getHistory() server.CallHandler {
 		return translationHistory, nil
 	}
 }
-

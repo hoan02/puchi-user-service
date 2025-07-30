@@ -61,4 +61,3 @@ func init() {
 
 	log.Printf("Migrate: up success")
 }
-

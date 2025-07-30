@@ -73,4 +73,3 @@ func (s *Server) Notify() <-chan error {
 func (s *Server) Shutdown() error {
 	return s.App.ShutdownWithTimeout(s.shutdownTimeout)
 }
-

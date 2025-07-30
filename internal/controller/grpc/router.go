@@ -16,4 +16,3 @@ func NewRouter(app *pbgrpc.Server, t usecase.Translation, l logger.Interface) {
 
 	reflection.Register(app)
 }
-

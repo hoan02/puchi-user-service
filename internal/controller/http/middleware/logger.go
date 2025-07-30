@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hoan02/puchi-user-service/pkg/logger"
 	"github.com/gofiber/fiber/v2"
+	"github.com/hoan02/puchi-user-service/pkg/logger"
 )
 
 func buildRequestMessage(ctx *fiber.Ctx) string {
@@ -33,4 +33,3 @@ func Logger(l logger.Interface) func(c *fiber.Ctx) error {
 		return err
 	}
 }
-

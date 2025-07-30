@@ -18,4 +18,3 @@ func (r *V1) GetHistory(ctx context.Context, _ *v1.GetHistoryRequest) (*v1.GetHi
 
 	return response.NewTranslationHistory(translationHistory), nil
 }
-

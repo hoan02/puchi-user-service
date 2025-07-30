@@ -37,4 +37,3 @@ func (t *TranslationWebAPI) Translate(translation entity.Translation) (entity.Tr
 
 	return translation, nil
 }
-

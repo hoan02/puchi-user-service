@@ -90,4 +90,3 @@ func Run(cfg *config.Config) {
 		l.Error(fmt.Errorf("app - Run - rmqServer.Shutdown: %w", err))
 	}
 }
-

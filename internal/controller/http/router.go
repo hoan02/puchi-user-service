@@ -5,14 +5,14 @@ import (
 	"net/http"
 
 	"github.com/ansrivas/fiberprometheus/v2"
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/swagger"
 	"github.com/hoan02/puchi-user-service/config"
 	_ "github.com/hoan02/puchi-user-service/docs" // Swagger docs.
 	"github.com/hoan02/puchi-user-service/internal/controller/http/middleware"
 	v1 "github.com/hoan02/puchi-user-service/internal/controller/http/v1"
 	"github.com/hoan02/puchi-user-service/internal/usecase"
 	"github.com/hoan02/puchi-user-service/pkg/logger"
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/swagger"
 )
 
 // NewRouter -.
@@ -48,4 +48,3 @@ func NewRouter(app *fiber.App, cfg *config.Config, t usecase.Translation, l logg
 		v1.NewTranslationRoutes(apiV1Group, t, l)
 	}
 }
-

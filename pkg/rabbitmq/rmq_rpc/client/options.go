@@ -25,4 +25,3 @@ func ConnAttempts(attempts int) Option {
 		c.conn.Attempts = attempts
 	}
 }
-

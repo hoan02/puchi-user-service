@@ -17,4 +17,3 @@ func NewRouter(t usecase.Translation, l logger.Interface) map[string]server.Call
 
 	return routes
 }
-

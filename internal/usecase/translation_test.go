@@ -119,4 +119,3 @@ func TestTranslate(t *testing.T) { //nolint:tparallel // data races here
 		})
 	}
 }
-

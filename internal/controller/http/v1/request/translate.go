@@ -5,4 +5,3 @@ type Translate struct {
 	Destination string `json:"destination"  validate:"required"  example:"en"`
 	Original    string `json:"original"     validate:"required"  example:"текст для перевода"`
 }
-

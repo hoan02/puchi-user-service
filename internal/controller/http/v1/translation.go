@@ -3,9 +3,9 @@ package v1
 import (
 	"net/http"
 
+	"github.com/gofiber/fiber/v2"
 	"github.com/hoan02/puchi-user-service/internal/controller/http/v1/request"
 	"github.com/hoan02/puchi-user-service/internal/entity"
-	"github.com/gofiber/fiber/v2"
 )
 
 // @Summary     Show history
@@ -70,4 +70,3 @@ func (r *V1) doTranslate(ctx *fiber.Ctx) error {
 
 	return ctx.Status(http.StatusOK).JSON(translation)
 }
-

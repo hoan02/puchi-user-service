@@ -46,4 +46,3 @@ func (uc *UseCase) Translate(ctx context.Context, t entity.Translation) (entity.
 
 	return translation, nil
 }
-

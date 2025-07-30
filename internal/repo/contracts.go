@@ -21,4 +21,3 @@ type (
 		Translate(entity.Translation) (entity.Translation, error)
 	}
 )
-

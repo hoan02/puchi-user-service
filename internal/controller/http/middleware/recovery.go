@@ -5,9 +5,9 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/hoan02/puchi-user-service/pkg/logger"
 	"github.com/gofiber/fiber/v2"
 	fiberRecover "github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/hoan02/puchi-user-service/pkg/logger"
 )
 
 func buildPanicMessage(ctx *fiber.Ctx, err interface{}) string {
@@ -36,4 +36,3 @@ func Recovery(l logger.Interface) func(c *fiber.Ctx) error {
 		StackTraceHandler: logPanic(l),
 	})
 }
-

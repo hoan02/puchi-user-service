@@ -20,4 +20,3 @@ func NewTranslationHistory(translationHistory entity.TranslationHistory) *v1.Get
 
 	return &v1.GetHistoryResponse{History: history}
 }
-

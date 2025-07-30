@@ -16,4 +16,3 @@ type (
 		History(context.Context) (entity.TranslationHistory, error)
 	}
 )
-
