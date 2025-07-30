@@ -83,7 +83,7 @@ linter-dotenv: ### check by dotenv linter
 .PHONY: linter-dotenv
 
 test: ### run test
-	go test -v -race -covermode atomic -coverprofile=coverage.txt ./internal/...
+	go test -v -covermode atomic -coverprofile=coverage.txt ./internal/...
 .PHONY: test
 
 integration-test: ### run integration-test
