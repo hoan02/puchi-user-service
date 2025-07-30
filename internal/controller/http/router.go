@@ -20,7 +20,7 @@ import (
 // @title       Go Clean Template API
 // @description Using a translation service as an example
 // @version     1.0
-// @host        localhost:8080
+// @host        localhost:8002
 // @BasePath    /v1
 func NewRouter(app *fiber.App, cfg *config.Config, t usecase.Translation, l logger.Interface) {
 	// Options

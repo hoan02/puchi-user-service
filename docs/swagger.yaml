@@ -44,7 +44,7 @@ definitions:
         example: message
         type: string
     type: object
-host: localhost:8080
+host: localhost:8002
 info:
   contact: {}
   description: Using a translation service as an example
