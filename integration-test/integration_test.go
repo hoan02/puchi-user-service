@@ -20,7 +20,7 @@ import (
 const (
 	// Base settings
 	host     = "app"
-	attempts = 60
+	attempts = 120
 
 	// Attempts connection
 	httpURL        = "http://" + host + ":8002"
@@ -33,11 +33,7 @@ const (
 	// gRPC
 	grpcURL = host + ":9002"
 
-	// RabbitMQ RPC
-	rmqURL            = "amqp://guest:guest@rabbitmq:5672/"
-	rpcServerExchange = "user_rpc_server"
-	rpcClientExchange = "user_rpc_client"
-	requests          = 10
+	requests = 10
 
 	// Test data
 	expectedOriginal = "текст для перевода"
@@ -84,7 +80,7 @@ func healthCheck(attempts int) error {
 
 		log.Printf("Integration tests: url %s is not available, attempts left: %d", healthPath, attempts)
 
-		time.Sleep(2 * time.Second)
+		time.Sleep(3 * time.Second)
 
 		attempts--
 	}
