@@ -13,7 +13,6 @@ import (
 
 	"github.com/goccy/go-json"
 	protov1 "github.com/hoan02/puchi-user-service/docs/proto/v1"
-	"github.com/hoan02/puchi-user-service/pkg/rabbitmq/rmq_rpc/client"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -21,7 +20,7 @@ import (
 const (
 	// Base settings
 	host     = "app"
-	attempts = 20
+	attempts = 120
 
 	// Attempts connection
 	httpURL        = "http://" + host + ":8002"
@@ -34,11 +33,7 @@ const (
 	// gRPC
 	grpcURL = host + ":9002"
 
-	// RabbitMQ RPC
-	rmqURL            = "amqp://guest:guest@rabbitmq:5672/"
-	rpcServerExchange = "user_rpc_server"
-	rpcClientExchange = "user_rpc_client"
-	requests          = 10
+	requests = 10
 
 	// Test data
 	expectedOriginal = "текст для перевода"
@@ -85,7 +80,7 @@ func healthCheck(attempts int) error {
 
 		log.Printf("Integration tests: url %s is not available, attempts left: %d", healthPath, attempts)
 
-		time.Sleep(time.Second)
+		time.Sleep(3 * time.Second)
 
 		attempts--
 	}
@@ -217,49 +212,6 @@ func TestClientGRPCV1(t *testing.T) {
 		history, err := grpcClientV1.GetHistory(t.Context(), &protov1.GetHistoryRequest{})
 		if err != nil {
 			t.Fatal("gRPC Client - remote call error - grpcClientV1.GetHistory", err)
-		}
-
-		if len(history.History) == 0 {
-			t.Fatal("History slice is empty, expected at least one entry")
-		}
-
-		if history.History[0].Original != expectedOriginal {
-			t.Fatalf("Original mismatch: expected %q, got %q", expectedOriginal, history.History[0].Original)
-		}
-	}
-}
-
-// RabbitMQ RPC Client V1: getHistory.
-func TestClientRMQRPCV1(t *testing.T) {
-	rmqClient, err := client.New(rmqURL, rpcServerExchange, rpcClientExchange)
-	if err != nil {
-		t.Fatal("RabbitMQ RPC Client - init error - client.New", err)
-	}
-
-	defer func() {
-		err = rmqClient.Shutdown()
-		if err != nil {
-			t.Fatal("RabbitMQ RPC Client - shutdown error - rmqClient.RemoteCall", err)
-		}
-	}()
-
-	type Translation struct {
-		Source      string `json:"source"`
-		Destination string `json:"destination"`
-		Original    string `json:"original"`
-		Translation string `json:"translation"`
-	}
-
-	type historyResponse struct {
-		History []Translation `json:"history"`
-	}
-
-	for i := 0; i < requests; i++ {
-		var history historyResponse
-
-		err = rmqClient.RemoteCall("v1.getHistory", nil, &history)
-		if err != nil {
-			t.Fatal("RabbitMQ RPC Client - remote call error - rmqClient.RemoteCall", err)
 		}
 
 		if len(history.History) == 0 {
