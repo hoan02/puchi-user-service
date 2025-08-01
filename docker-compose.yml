@@ -1,6 +1,3 @@
-version: "3.9"
-
-
 x-db-environment: &x-db-environment
   POSTGRES_SSL_MODE: "disable"
   POSTGRES_HOST: "db"
@@ -10,68 +7,43 @@ x-db-environment: &x-db-environment
   POSTGRES_USER: "user"
 
 x-rabbitmq-variables: &x-rabbitmq-variables
-  RABBITMQ_DEFAULT_USER: "guest"
-  RABBITMQ_DEFAULT_PASS: "guest"
+  RABBITMQ_DEFAULT_USER: "admin"
+  RABBITMQ_DEFAULT_PASS: "admin"
 
 x-backend-app-environment: &x-backend-app-environment
   GOMAXPROCS: "1"
-  # App
-  APP_NAME: "go-clean-template"
+  APP_NAME: "user-service"
   APP_VERSION: "1.0.0"
-  # HTTP settings
   HTTP_PORT: "8002"
   HTTP_USE_PREFORK_MODE: "false"
-  # Logger
   LOG_LEVEL: "debug"
-  # PG
   PG_POOL_MAX: "2"
-  PG_URL: "postgres://user:myAwEsOm3pa55@w0rd@db:5432/db"
-  # gRPC
+  PG_URL: "postgres://user:myAwEsOm3pa55@w0rd@user-db:5432/db"
   GRPC_PORT: "9002"
-  # RMQ
   RMQ_RPC_SERVER: "user_rpc_server"
   RMQ_RPC_CLIENT: "user_rpc_client"
-  RMQ_URL: "amqp://guest:guest@rabbitmq:5672/"
-  # Metrics
+  RMQ_URL: "amqp://admin:admin@rabbitmq:5672/"
   METRICS_ENABLED: "true"
-  # Swagger
   SWAGGER_ENABLED: "true"
-
 
 services:
   db:
-    container_name: db
+    container_name: user-db
     image: postgres:17-alpine
     environment:
       <<: *x-db-environment
     volumes:
       - db_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5434:5432"  # tránh conflict với auth-db
     networks:
       app_network:
         aliases:
-          - db.lvh.me
-
-  rabbitmq:
-    container_name: rabbitmq
-    image: rabbitmq:4.1-management
-    environment:
-      <<: *x-rabbitmq-variables
-    ports:
-      - "15672:15672"
-      - "5672:5672"
-    volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
-    networks:
-      app_network:
-        aliases:
-          - rabbitmq.lvh.me
+          - user-db
 
   app:
-    container_name: app
+    container_name: user-app
     platform: linux/amd64
-    pid: "host"
     build:
       context: .
     environment:
@@ -81,33 +53,36 @@ services:
       - "9002:9002"
     depends_on:
       - db
-      - rabbitmq
     networks:
       app_network:
         aliases:
-          - app.lvh.me
+          - user-app
+      apisix:
+        aliases:
+          - user-app
 
   nginx:
+    container_name: user-nginx
     image: nginx:1.29-alpine
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "80:80"
+      - "82:80"  # tránh conflict với auth-nginx
     depends_on:
-      - rabbitmq
       - app
     networks:
       app_network:
         aliases:
-          - nginx.lvh.me
-
+          - user-nginx
+      apisix:
+        aliases:
+          - user-nginx
 
 networks:
   app_network:
     external: false
-
+  apisix:
+    external: true
 
 volumes:
   db_data:
-  rabbitmq_data:
-
